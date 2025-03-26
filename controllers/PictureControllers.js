@@ -24,3 +24,12 @@ exports.create = async (req, res) => {
 }
 };
 
+exports.findAll = async (req, res) => {
+    try {
+        const pictures = await Picture.find();
+
+        res.json(pictures);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar!" });
+    }
+};
